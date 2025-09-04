@@ -130,9 +130,12 @@ const Header = () => {
               </Link>
             ))}
           </div>
+          
         </motion.nav>
       </div>
+      
     </motion.header>
+    
   );
 };
 

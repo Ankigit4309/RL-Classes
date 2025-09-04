@@ -59,6 +59,7 @@ const Home = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <HeroSection />
+      
 
       {/* Features Section */}
       <section className="py-20 bg-white">
@@ -75,7 +76,8 @@ const Home = () => {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               We provide comprehensive education with a focus on individual growth and academic excellence
             </p>
-          </motion.div>
+          </motion.div> 
+         
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (

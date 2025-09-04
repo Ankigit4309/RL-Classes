@@ -25,27 +25,9 @@ const Footer = () => {
               Building bright futures through dedicated teaching and personalized attention.
             </p>
             <div className="flex space-x-4">
-              <motion.a 
-                whileHover={{ scale: 1.1 }}
-                href="#" 
-                className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"
-              >
-                <Facebook className="w-5 h-5" />
-              </motion.a>
-              <motion.a 
-                whileHover={{ scale: 1.1 }}
-                href="#" 
-                className="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors"
-              >
-                <Instagram className="w-5 h-5" />
-              </motion.a>
-              <motion.a 
-                whileHover={{ scale: 1.1 }}
-                href="#" 
-                className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors"
-              >
-                <Youtube className="w-5 h-5" />
-              </motion.a>
+              
+             
+             
             </div>
           </motion.div>
 
@@ -102,7 +84,7 @@ const Footer = () => {
           className="border-t border-gray-800 mt-8 pt-8 text-center"
         >
           <p className="text-gray-400">
-            © 2025 RL Classes. All rights reserved. | Designed with ❤️ for education
+            © 2000 RL Classes. All rights reserved. | Designed By Ankit Kumar
           </p>
         </motion.div>
       </div>

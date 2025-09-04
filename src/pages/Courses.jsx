@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, Clock, Users, Star, CheckCircle, ArrowRight } from 'lucide-react';
+import { BookOpen, Clock, Users, Star, CheckCircle } from 'lucide-react';
 
 const Courses = () => {
   const boards = [
@@ -99,6 +99,7 @@ const Courses = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
@@ -116,6 +117,7 @@ const Courses = () => {
                 key={board.name}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
                 className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300"
@@ -146,7 +148,7 @@ const Courses = () => {
                     </div>
                   </div>
 
-                  <div className="mb-6">
+                  <div>
                     <h4 className="font-semibold text-gray-900 mb-3">Features:</h4>
                     <ul className="space-y-2">
                       {board.features.map((feature) => (
@@ -157,15 +159,6 @@ const Courses = () => {
                       ))}
                     </ul>
                   </div>
-
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`w-full py-3 bg-gradient-to-r ${board.color} text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center group`}
-                  >
-                    Learn More
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </motion.button>
                 </div>
               </motion.div>
             ))}
@@ -179,6 +172,7 @@ const Courses = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
@@ -196,10 +190,11 @@ const Courses = () => {
                 key={classLevel.level}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-300"
               >
-                <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
                   <div className="text-center lg:text-left">
                     <div className="text-4xl mb-2">{classLevel.icon}</div>
                     <h3 className="text-xl font-bold text-gray-900 mb-1">{classLevel.level}</h3>
@@ -219,16 +214,6 @@ const Courses = () => {
                       ))}
                     </div>
                   </div>
-
-                  <div className="text-center lg:text-right">
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
-                    >
-                      Enroll Now
-                    </motion.button>
-                  </div>
                 </div>
               </motion.div>
             ))}
@@ -242,6 +227,7 @@ const Courses = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
@@ -280,6 +266,7 @@ const Courses = () => {
                 key={feature.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
                 className="bg-gray-50 p-6 rounded-xl text-center hover:shadow-lg transition-all duration-300"
@@ -301,6 +288,7 @@ const Courses = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
@@ -309,14 +297,6 @@ const Courses = () => {
             <p className="text-xl text-blue-100 mb-8">
               Join RL Classes and experience the difference quality education makes
             </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-full hover:shadow-lg transition-all duration-300 group"
-            >
-              Start Your Journey
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
           </motion.div>
         </div>
       </section>

@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+
+
+
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   const [activeImage, setActiveImage] = useState(0);
-  const [direction, setDirection] = useState(1); 
 
   const backgrounds = [
     {
-      image: '/Bgimg1.jpg',
+      image: "/Bgimg1.jpg",
       content: (
         <>
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
@@ -24,10 +26,10 @@ const HeroSection = () => {
           </p>
         </>
       ),
-      align: 'left',
+      align: "left",
     },
     {
-      image: '/Bgimg2.jpg',
+      image: "/Bgimg2.jpg",
       content: (
         <>
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
@@ -38,72 +40,69 @@ const HeroSection = () => {
           </h1>
           <p className="text-xl mb-8 leading-relaxed">
             We emphasize personalized attention and modern teaching methods.
-            Our experienced faculty ensures every student gets the guidance they need to excel in their academic journey.
+            <br />
+            Our experienced faculty ensures every student gets the guidance <br />
+            they need to excel in their academic journey.
+            <br />
             Join us and become a part of an institution that truly values your success.
           </p>
         </>
       ),
-      align: 'right',
+      align: "right",
     },
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setDirection(1);
       setActiveImage((prev) => (prev + 1) % backgrounds.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [backgrounds.length]);
 
   const handlePrev = () => {
-    setDirection(-1);
-    setActiveImage((prev) => (prev === 0 ? backgrounds.length - 1 : prev - 1));
+    setActiveImage((prev) =>
+      prev === 0 ? backgrounds.length - 1 : prev - 1
+    );
   };
 
   const handleNext = () => {
-    setDirection(1);
     setActiveImage((prev) => (prev + 1) % backgrounds.length);
   };
 
   return (
     <section className="relative h-[75vh] overflow-hidden">
-      {/* Background Image Transition */}
-     <div className="absolute inset-0 z-0">
-  <AnimatePresence mode="wait" custom={direction} initial={false}>
-   <motion.img
-  key={backgrounds[activeImage].image}
-  src={backgrounds[activeImage].image}
-  alt="Background"
-  custom={direction}
-  initial={{ y: direction > 0 ? '100%' : '-100%' }}
-  animate={{ y: 0 }}
-  exit={{ y: direction > 0 ? '-100%' : '100%' }}
-  transition={{ duration: 0.3, ease: 'easeInOut' }}
-  className="absolute inset-0 w-full h-full object-cover z-0"
-/>
+      {/* Background Images with Fade Transition */}
+      <div className="absolute inset-0 z-0">
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={backgrounds[activeImage].image}
+            src={backgrounds[activeImage].image}
+            alt="Background"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </AnimatePresence>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40" />
+      </div>
 
-  </AnimatePresence>
-
-  {/* Fallback background */}
-  <div className="absolute inset-0 bg-black/40" />
-</div>
-
-
-      {/* Content Area */}
+      {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center h-[75vh]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
-          <AnimatePresence mode="wait" custom={direction}>
+          <AnimatePresence mode="wait">
             <motion.div
               key={activeImage}
-              custom={direction}
-              initial={{ x: direction > 0 ? 100 : -100, opacity: 0 }}
+              initial={{ x: 50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              exit={{ x: direction > 0 ? -100 : 100, opacity: 0 }}
-              transition={{ duration: 0.6, ease: 'easeInOut' }}
+              exit={{ x: -50, opacity: 0 }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
               className={`relative z-10 text-white ${
-                backgrounds[activeImage].align === 'right'
-                  ? 'col-span-2 flex justify-end text-right'
-                  : ''
+                backgrounds[activeImage].align === "right"
+                  ? "col-span-2 flex justify-end text-right"
+                  : ""
               }`}
             >
               <div>
@@ -112,7 +111,9 @@ const HeroSection = () => {
                 {/* CTA Buttons */}
                 <div
                   className={`flex flex-col sm:flex-row gap-4 mt-4 ${
-                    backgrounds[activeImage].align === 'right' ? 'justify-end' : ''
+                    backgrounds[activeImage].align === "right"
+                      ? "justify-end"
+                      : ""
                   }`}
                 >
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -139,8 +140,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Navigation Arrows */}
-    
+      
     </section>
   );
 };
