@@ -31,23 +31,8 @@ const Footer = () => {
             </div>
           </motion.div>
 
-          {/* Quick Links */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              {['Home', 'About Us', 'Courses', 'Contact', 'Admissions'].map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200">
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+          
+         
 
           {/* Contact Info */}
           <motion.div 

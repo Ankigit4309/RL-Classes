@@ -289,7 +289,7 @@ const Contact = () => {
               Call us directly for quick answers to your questions
             </p>
             <motion.a
-              href="tel:+919876543210"
+              href="tel:+919795050930"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center px-8 py-4 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 hover:shadow-lg transition-all duration-300"
